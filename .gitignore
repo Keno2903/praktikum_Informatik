@@ -1,0 +1,14 @@
+# Eclipse-Build-Ordner
+**/Debug/
+**/Release/
+
+# Eclipse-Projekt‑Settings (optional, nur wenn du sie nicht versionieren willst)
+.settings/
+
+# Sonstige temporäre Dateien
+*.log
+*.tmp
+
+# macOS
+.DS_Store
+
