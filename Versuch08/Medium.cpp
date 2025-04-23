@@ -23,19 +23,14 @@ Medium::~Medium(void)
 {
 }
 
-
-void Medium::ausgabe() const
-{
-    std::cout << "ID: " << ID << std::endl;
-    std::cout << "Titel: " << titel << std::endl;
-
-    if (status)
-    {
-        std::cout << "Status : Das Medium ist seit dem " << datumAusgeliehen << " an " << personAusgeliehen.getName() << " ausgeliehen." << std::endl;
-    }
-    else
-    {
-        std::cout << "Status: Medium ist zurzeit nicht verliehen." << std::endl;
+void Medium::ausgabe(std::ostream& os) const {
+    os << "ID: " << ID << std::endl;
+    os << "Titel: " << titel << std::endl;
+    if (status) {
+        os << "Status: Das Medium ist seit dem " << datumAusgeliehen
+           << " an " << personAusgeliehen.getName() << " ausgeliehen." << std::endl;
+    } else {
+        os << "Status: Medium ist zurzeit nicht verliehen." << std::endl;
     }
 }
 
@@ -61,7 +56,7 @@ void Medium::zurueckgeben()
     if (status)
     {
         status = false;
-        std::cout << "Das Medium \"" << titel << "\" wurde zur�ckgegeben." << std::endl;
+        std::cout << "Das Medium \"" << titel << "\" wurde zur�ckgegeben." << std::endl;
     }
     else
     {
@@ -73,3 +68,14 @@ unsigned int Medium::getID()
 {
     return ID;
 }
+
+bool Medium::istAusgeliehen() const {
+    return status;
+}
+
+/* Ausgabeoperator << überlädt die Ausgabe für Medium und ruft die Ausgabemethode auf */
+std::ostream& operator<<(std::ostream& os, const Medium& medium) {
+    medium.ausgabe(os);
+    return os;
+}
+

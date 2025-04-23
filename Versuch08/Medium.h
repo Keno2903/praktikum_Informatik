@@ -11,88 +11,97 @@
 #include "Datum.h"
 #include "Person.h"
 
-/*! \brief Basisklasse für sämtliche Medien
-*
-* Diese Klasse stellt eine Basisklasse für Objekte dar, die Medien beschreiben
-* Von dieser Klasse werden alle anderen Medien, wie z.B. Buch oder DVD abgeleitet
-*/
-class Medium
-{
+/*! \brief Basisklasse fï¿½r sï¿½mtliche Medien
+ *
+ * Diese Klasse stellt eine Basisklasse fï¿½r Objekte dar, die Medien beschreiben
+ * Von dieser Klasse werden alle anderen Medien, wie z.B. Buch oder DVD abgeleitet
+ */
+class Medium {
 public:
-    /*!
-     * @brief Konstruktor
-     *
-     * Konstruktor der Klasse Medium
-     *
-     * \param std::string initTitel: Titel des Mediums
-     */
-    Medium(std::string initTitel);
+	/*!
+	 * @brief Konstruktor
+	 *
+	 * Konstruktor der Klasse Medium
+	 *
+	 * \param std::string initTitel: Titel des Mediums
+	 */
+	Medium(std::string initTitel);
 
-    /*!
-     * @brief virtueller Destruktor
-     */
-    virtual ~Medium(void);
+	/*!
+	 * @brief virtueller Destruktor
+	 */
+	virtual ~Medium(void);
 
-    /*!
-     * @brief Ausgabefunktion
-     *
-     * Funktion gibt alle Informationen eines Mediums auf der Konsole aus
-     */
-    void ausgabe() const;
+	/*!
+	 * @brief Ausgabefunktion
+	 *
+	 * Funktion gibt alle Informationen eines Mediums auf der Konsole aus
+	 */
+	virtual void ausgabe(std::ostream& os) const;
 
-    /*!
-     * @brief Ausleihen-Funktion
-     *
-     * \param Person person: Person die das Medium ausleihen möchte
-     * \param Datum ausleihdatum: Datum an dem das Medium ausgeliehen wird
-     *
-     * \return bool: true,  wenn die Ausleihbeschränkungen erfüllt sind und das Medium ausgeliehen werden kann
-     *               false, wenn die Ausleihbeschränkungen nicht erfüllt sind und das Medium nicht ausgeliehen werden kann
-     */
-    bool ausleihen(Person person, Datum ausleihdatum);
+	/*!
+	 * @brief Ausleihen-Funktion
+	 *
+	 * \param Person person: Person die das Medium ausleihen mï¿½chte
+	 * \param Datum ausleihdatum: Datum an dem das Medium ausgeliehen wird
+	 *
+	 * \return bool: true,  wenn die Ausleihbeschrï¿½nkungen erfï¿½llt sind und das Medium ausgeliehen werden kann
+	 *               false, wenn die Ausleihbeschrï¿½nkungen nicht erfï¿½llt sind und das Medium nicht ausgeliehen werden kann
+	 */
 
-    /*!
-     * @brief Gibt ein Medium in die Bücherei zurück
-     */
-    void zurueckgeben();
+	/*! Ausleihen-Funktion:
+	 * Versucht, das Medium an eine Person ab einem bestimmten Datum auszuleihen.
+	 * @return true wenn erfolgreich, false wenn AusleihbeschrÃ¤nkungen verletzt oder bereits verliehen. */
+	virtual bool ausleihen(Person person, Datum ausleihdatum) = 0; // rein virtuell
 
-    /*!
-     * @brief ID des Mediums
-     *
-     * \return int: gibt die ID des Mediums zurück
-     */
-    unsigned int getID();
+	/*!
+	 * @brief Gibt ein Medium in die Bï¿½cherei zurï¿½ck
+	 */
+	void zurueckgeben();
+
+	/*!
+	 * @brief ID des Mediums
+	 *
+	 * \return int: gibt die ID des Mediums zurï¿½ck
+	 */
+	unsigned int getID();
+
+	/*! @return Ausleihstatus (true=ausgeliehen, false=verfÃ¼gbar) */
+	bool istAusgeliehen() const;
+
+	/*! Ãœberladener Ausgabeoperator fÃ¼r Medium */
+	friend std::ostream& operator<<(std::ostream &os, const Medium &medium);
 
 protected:
-    /*!
-     * @brief Statische Variable zum Erzeugen der fortlaufenden IDs
-     */
-    static unsigned int currentID;
-     
-    /*!
-     * @brief Eindeutige ID des Mediums
-     */
-    unsigned int ID;
+	/*!
+	 * @brief Statische Variable zum Erzeugen der fortlaufenden IDs
+	 */
+	static unsigned int currentID;
 
-    /*!
-     * @brief Titel des Mediums
-     */
-    std::string titel;
+	/*!
+	 * @brief Eindeutige ID des Mediums
+	 */
+	unsigned int ID;
 
-    /*!
-     * @brief Status des Mediums (true: ausgeliehen, false: nicht ausgeliehen)
-     */
-    bool status;
+	/*!
+	 * @brief Titel des Mediums
+	 */
+	std::string titel;
 
-    /*!
-     * @brief Datum seit dem das Medium ausgeliehen ist
-     */
-    Datum datumAusgeliehen;
+	/*!
+	 * @brief Status des Mediums (true: ausgeliehen, false: nicht ausgeliehen)
+	 */
+	bool status;
 
-    /*!
-     * @brief Person, die das Medium ausgeliehen hat
-     */
-    Person personAusgeliehen;
+	/*!
+	 * @brief Datum seit dem das Medium ausgeliehen ist
+	 */
+	Datum datumAusgeliehen;
+
+	/*!
+	 * @brief Person, die das Medium ausgeliehen hat
+	 */
+	Person personAusgeliehen;
 
 };
 #endif

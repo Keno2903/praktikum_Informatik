@@ -8,12 +8,21 @@
 #ifndef MAGAZIN_H_
 #define MAGAZIN_H_
 
-#include <Medium.h>
+#include "Medium.h"
+#include "Datum.h"
 
 class Magazin : public Medium{
 public:
-	Magazin();
+	Magazin(std::string initTitel, Datum initDatumausgabe,
+			std::string initSparte);
 	virtual ~Magazin();
+
+	virtual void ausgabe(std::ostream& os) const;
+	virtual bool ausleihen(Person person, Datum ausleihdatum);
+
+	std::string sparte;
+	Datum datumAusgabe;
+
 };
 
 #endif /* MAGAZIN_H_ */
