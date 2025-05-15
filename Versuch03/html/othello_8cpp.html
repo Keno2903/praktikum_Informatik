@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: othello.cpp File Reference</title>
+<title>Othello Spiel: othello.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Othello Spiel
    </div>
   </td>
  </tr>
@@ -88,10 +88,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7034afa60f015a8ab6c0b836d316d4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion, die einen Zug ausfuehrt.  <br /></td></tr>
 <tr class="separator:a7034afa60f015a8ab6c0b836d316d4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cf3121558de67463e88957becd116d1" id="r_a8cf3121558de67463e88957becd116d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cf3121558de67463e88957becd116d1">moeglicheZuege</a> (const int spielfeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int aktuellerSpieler)</td></tr>
+<tr class="memdesc:a8cf3121558de67463e88957becd116d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ermittelt die Anzahl gueltiger Zuege fuer den aktuellen Spieler.  <br /></td></tr>
 <tr class="separator:a8cf3121558de67463e88957becd116d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae44cf481fe71ebc30511c76190e6bc5d" id="r_ae44cf481fe71ebc30511c76190e6bc5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae44cf481fe71ebc30511c76190e6bc5d">menschlicherZug</a> (int spielfeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int aktuellerSpieler)</td></tr>
+<tr class="memdesc:ae44cf481fe71ebc30511c76190e6bc5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Führt den Zug für den menschlichen Spieler aus.  <br /></td></tr>
 <tr class="separator:ae44cf481fe71ebc30511c76190e6bc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a596345e24a803c4d6cc0880cdd9c6788" id="r_a596345e24a803c4d6cc0880cdd9c6788"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a596345e24a803c4d6cc0880cdd9c6788">spielen</a> (const int spielerTyp[2])</td></tr>
+<tr class="memdesc:a596345e24a803c4d6cc0880cdd9c6788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verantwortlich für den Ablauf des Spiels.  <br /></td></tr>
 <tr class="separator:a596345e24a803c4d6cc0880cdd9c6788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,6 +220,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Führt den Zug für den menschlichen Spieler aus. </p>
+<p>Fragt das Feld ab, auf dem der Stein gesetzt werden soll und führt den Zug aus</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spielfeld</td><td>Das aktuelle Spielfeld </td></tr>
+    <tr><td class="paramname">aktuellerSpieler</td><td>Der aktuelle Spieler </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Anzahl gueltiger Zuege </dd></dl>
+
 </div>
 </div>
 <a id="a8cf3121558de67463e88957becd116d1" name="a8cf3121558de67463e88957becd116d1"></a>
@@ -238,6 +252,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ermittelt die Anzahl gueltiger Zuege fuer den aktuellen Spieler. </p>
+<p>Durchlaueft alle Felder des Spielfelds und prueft, ob ein Zug an dieser Stelle gemaess den Spielregeln gueltig waere</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spielfeld</td><td>Das aktuelle Spielfeld </td></tr>
+    <tr><td class="paramname">aktuellerSpieler</td><td>Der aktuelle Spieler </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Anzahl gueltiger Zuege </dd></dl>
+
 </div>
 </div>
 <a id="a596345e24a803c4d6cc0880cdd9c6788" name="a596345e24a803c4d6cc0880cdd9c6788"></a>
@@ -254,6 +279,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Verantwortlich für den Ablauf des Spiels. </p>
+<p>Lässt jeden Spieler seine Züge ausführen bis das Feld voll ist Gibt am Ende den Gewinner aus</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spielerTyp</td><td>Array welches die Spielertypen speichert (Computer/Mensch) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Anzahl gueltiger Zuege </dd></dl>
 
 </div>
 </div>

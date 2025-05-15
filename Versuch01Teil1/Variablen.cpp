@@ -58,8 +58,42 @@ int main()
     std::cout << "\nName in der Form \"Vorname Nachname\": " << sVornameName << std::endl;
     std::cout << "Name in der Form \"Nachname, Vorname\": " << sNameVorname << std::endl;
 
-    return 0;
+    // Aufgabe 5:
+    {
+    	int iFeld[2] = {1,2};
+    	int spielFeld[2][3] = {{1,2,3},{1,2,3}};
+    	const int iZweite = 1;
 
+    	std::cout << iFeld[0] << std::endl;
+    	std::cout << iFeld[1] << std::endl;
+
+    	std::cout << spielFeld[0][0] << " " << spielFeld[0][1] << " " << spielFeld[0][2] << std::endl;
+    	std::cout << spielFeld[1][0] << " " << spielFeld[1][1] << " " << spielFeld[1][2] << std::endl;
+
+    	std::cout << iZweite << std::endl;
+
+    }
+    std::cout << iZweite << std::endl;
+
+
+    // Aufgabe 6:
+    int iName1, iName2;
+
+    iName1 = (int) sVorname[0];
+    iName2 = (int) sVorname[1];
+
+    std::cout << "Der erste Buchstabe des Vornamens als Zahl ist: " << iName1 << std::endl;
+    std::cout << "Der zweite Buchstabe des Vornamens als Zahl ist: " << iName2 << std::endl;
+
+    // Aufgabe 7:
+
+    //ASCII unterscheidet zwischen Groß- und Kleinbuchstaben
+
+    int positionInAlphabet1 = iName1 > 97 ? iName1 % 96 : iName1 % 64;
+    int positionInAlphabet2 = iName2 > 97 ? iName2 % 96 : iName2 % 64;
+
+    std::cout << "Die Position im Alphabet des ersten Buchstabens des Vornamens ist: " << positionInAlphabet1 << std::endl;
+    std::cout << "Die Position im Alphabet des zweiten Buchstabens des Vornamens ist: " << positionInAlphabet2 << std::endl;
 
     return 0;
     

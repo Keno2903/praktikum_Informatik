@@ -150,7 +150,7 @@ int gewinner(const int spielfeld[GROESSE_Y][GROESSE_X])
 bool aufSpielfeld(const int posX, const int posY)
 {
 
-	return(posX <= GROESSE_X && posY < GROESSE_Y && posX > 0 && posY >= 0);
+	return(posX < GROESSE_X && posY < GROESSE_Y && posX >= 0 && posY >= 0);
 }
 
 
@@ -190,10 +190,6 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
         	if (i == 0 && j == 0)
         		continue;
 
-        	// Falls das benachbarte Feld außerhalb des Spielfelds liegt, überspringen
-        	if (!aufSpielfeld(x, y))
-        		continue;
-
         	// Das erste benachbarte Feld muss den gegnerischen Stein haben, sonst ist diese Richtung nicht gueltig
         	if (spielfeld[y][x] != gegner)
         		continue;
@@ -202,7 +198,7 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
         	y+=j;
         	// In der Richtung nach eigenem Stein suchen
         	// Solange die Richtung weitergehen, bis man außerhalb des Feldes ist
-        	while(aufSpielfeld(y, x)) {
+        	while(aufSpielfeld(x, y)) {
 
         		// Wenn das in diese Richtung besuchte Feld leer ist, ist diese Richtung ungültig
         		if(spielfeld[y][x] == 0) break;
@@ -254,10 +250,6 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
         	int x = posX + i;
         	int y = posY + j;
 
-        	// Falls das benachbarte Feld außerhalb des Spielfelds liegt, überspringen
-        	if (!aufSpielfeld(x, y))
-        		continue;
-
         	// Das erste benachbarte Feld muss den gegnerischen Stein haben, sonst ist diese Richtung nicht gueltig
         	if (spielfeld[y][x] != gegner)
         		continue;
@@ -290,6 +282,16 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 }
 
 
+/**
+ * @brief Ermittelt die Anzahl gueltiger Zuege fuer den aktuellen Spieler
+ *
+ * Durchlaueft alle Felder des Spielfelds und prueft, ob ein Zug an dieser Stelle
+ * gemaess den Spielregeln gueltig waere
+ *
+ * @param spielfeld Das aktuelle Spielfeld
+ * @param aktuellerSpieler Der aktuelle Spieler
+ * @return Anzahl gueltiger Zuege
+ */
 int moeglicheZuege(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpieler)
 {
 	int counter = 0;
@@ -306,7 +308,16 @@ int moeglicheZuege(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuelle
     return counter;
 }
 
-
+/**
+ * @brief Führt den Zug für den menschlichen Spieler aus
+ *
+ * Fragt das Feld ab, auf dem der Stein gesetzt werden soll
+ * und führt den Zug aus
+ *
+ * @param spielfeld Das aktuelle Spielfeld
+ * @param aktuellerSpieler Der aktuelle Spieler
+ * @return Anzahl gueltiger Zuege
+ */
 bool menschlicherZug(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpieler)
 {
     if (moeglicheZuege(spielfeld, aktuellerSpieler) == 0)
@@ -351,7 +362,15 @@ bool menschlicherZug(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpi
     return true;
 }
 
-
+/**
+ * @brief Verantwortlich für den Ablauf des Spiels
+ *
+ * Lässt jeden Spieler seine Züge ausführen bis das Feld voll ist
+ * Gibt am Ende den Gewinner aus
+ *
+ * @param spielerTyp Array welches die Spielertypen speichert (Computer/Mensch)
+ * @return Anzahl gueltiger Zuege
+ */
 void spielen(const int spielerTyp[2])
 {
     int spielfeld[GROESSE_Y][GROESSE_X];
@@ -359,7 +378,7 @@ void spielen(const int spielerTyp[2])
     //Erzeuge Startaufstellung
     initialisiereSpielfeld(spielfeld);
 
-    int aktuellerSpieler = 2;
+    int aktuellerSpieler = 1;
     zeigeSpielfeld(spielfeld);
 
     // solange noch Zuege bei einem der beiden Spieler moeglich sind
@@ -388,11 +407,7 @@ void spielen(const int spielerTyp[2])
     	zeigeSpielfeld(spielfeld);
 
     	// Spieler wechseln
-    	if(aktuellerSpieler == 1) {
-    		aktuellerSpieler = 2;
-    	}else {
-    		aktuellerSpieler = 1;
-    	}
+    	aktuellerSpieler = 3 - aktuellerSpieler;
     }
 
     switch (gewinner(spielfeld))

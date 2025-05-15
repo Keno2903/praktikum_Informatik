@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: main.cpp File Reference</title>
+<title>Vektor Aufgabe Versuch 04: main.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Vektor Aufgabe Versuch 04
    </div>
   </td>
  </tr>
@@ -57,32 +57,25 @@ $(function(){initNavTree('main_8cpp.html',''); initResizable(true); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">main.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &quot;<a class="el" href="_vektor_8h_source.html">Vektor.h</a>&quot;</code><br />
+
+<p>Hauptprogramm zur Berechnung der maximalen Sichtweite auf einer kugelförmigen Erde.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_vektor_8h_source.html">Vektor.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hauptprogramm.  <br /></td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hauptfunktion zur Durchführung der Horizontberechnung.  <br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a0877420f3d7b1f47b871d2ccb47168d8" id="r_a0877420f3d7b1f47b871d2ccb47168d8"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0877420f3d7b1f47b871d2ccb47168d8">R</a> = 6371e3</td></tr>
-<tr class="memdesc:a0877420f3d7b1f47b871d2ccb47168d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erdradius in Metern.  <br /></td></tr>
-<tr class="separator:a0877420f3d7b1f47b871d2ccb47168d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e8e201edf24007dc075bfef6e8210c" id="r_aa6e8e201edf24007dc075bfef6e8210c"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6e8e201edf24007dc075bfef6e8210c">h</a> = 555.7</td></tr>
-<tr class="memdesc:aa6e8e201edf24007dc075bfef6e8210c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Höhe der Beobachtungsplattform in Metern.  <br /></td></tr>
-<tr class="separator:aa6e8e201edf24007dc075bfef6e8210c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hauptprogramm zur Berechnung der maximalen Sichtweite auf einer kugelförmigen Erde. </p>
+<p>Dieses Programm verwendet ausschließlich Vektoroperationen, um zu bestimmen, wie weit eine Person von einem erhöhten Aussichtspunkt (557.4 m über der Erdoberfläche) sehen kann, bevor die Erdkrümmung die Sicht blockiert. Dabei wird die Rotation eines Erdpunktes simuliert, bis der Sichtstrahl tangential zur Erdoberfläche verläuft. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
 
@@ -98,65 +91,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Hauptprogramm. </p>
-<p>Testet zunächst die Funktionsfähigkeit der Klasse <a class="el" href="class_vektor.html" title="Repräsentiert einen 3-dimensionalen Vektor und bietet grundlegende Vektoroperationen.">Vektor</a> und berechnet dann iterativ die maximale Sichtweite S und den Winkel β, unter dem der Beobachter die Erdoberfläche gerade noch tangential sieht.</p>
-<dl class="section return"><dt>Returns</dt><dd>Immer 0 (Programm erfolgreich beendet). </dd></dl>
-<p>&lt; Einheitvektor entlang +x</p>
-<p>&lt; Einheitvektor entlang +y</p>
-<p>&lt; Erwartete Ausgabe: X=1, Y=0, Z=0</p>
-<p>&lt; Erwartete Ausgabe: X=0, Y=1, Z=0</p>
-<p>&lt; Beobachterposition im Koordinatensystem</p>
-<p>&lt; Einheitsvektor zu Beginn tangential (+x)</p>
-<p>&lt; Rotationsschritt in Radiant (sehr klein)</p>
-<p>&lt; Zähler für die Anzahl der Rotationsschritte</p>
-<p>&lt; Diskriminante der Schnittgleichung</p>
-<p>Rotiert den Sichtvektor schrittweise nach unten, bis er die Tangentialbedingung (D=0) erfüllt.</p>
-<p>In jeder Iteration:</p><ul>
-<li>v.rotiereUmZ(-delta): rotiert um -delta um die z-Achse</li>
-<li>steps++: erhöht den Schrittzähler</li>
-<li>Für Schnittpunkt gilt ||O+v+T|| = R^2;</li>
-<li>Berechnung der Diskriminante D: D = (O·v)² - (|O|² - R²)</li>
-<li>Abbruch, wenn D ≤ 0 (Tangentialfall)</li>
-</ul>
-<p>&lt; Winkel in Radiant</p>
-<p>&lt; Winkel in Grad</p>
-<p>&lt; Distanz bis Tangente in Metern</p>
-<p>&lt; Distanz in Kilometern</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="aa6e8e201edf24007dc075bfef6e8210c" name="aa6e8e201edf24007dc075bfef6e8210c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6e8e201edf24007dc075bfef6e8210c">&#9670;&#160;</a></span>h</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double h = 555.7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Höhe der Beobachtungsplattform in Metern. </p>
-<p>Körpergröße des Betrachters wird vernachlässigt; die Plattformhöhe wird direkt als Beobachtungshöhe h angenommen. </p>
-
-</div>
-</div>
-<a id="a0877420f3d7b1f47b871d2ccb47168d8" name="a0877420f3d7b1f47b871d2ccb47168d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0877420f3d7b1f47b871d2ccb47168d8">&#9670;&#160;</a></span>R</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double R = 6371e3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Erdradius in Metern. </p>
-<p>Radius der idealen Kugel-Erde, verwendet zur Bestimmung der Sichtdistanz bis zum Horizont. </p>
+<p>Hauptfunktion zur Durchführung der Horizontberechnung. </p>
+<p>Die Funktion initialisiert Vektoren für die Erdoberfläche und die Augenhöhe der beobachtenden Person. Anschließend wird iterativ ein Punkt auf der Erdoberfläche um die Z-Achse gedreht, bis der Sichtvektor zum tangentialen Punkt führt. Die Ergebnisse werden formatiert ausgegeben.</p>
+<dl class="section return"><dt>Returns</dt><dd>int Rückgabewert 0 bei erfolgreicher Ausführung. </dd></dl>
 
 </div>
 </div>

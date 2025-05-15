@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: othelloKI.cpp File Reference</title>
+<title>Othello Spiel: othelloKI.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Othello Spiel
    </div>
   </td>
  </tr>
@@ -67,6 +67,7 @@ $(function(){initNavTree('othello_k_i_8cpp.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8cf3121558de67463e88957becd116d1" id="r_a8cf3121558de67463e88957becd116d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cf3121558de67463e88957becd116d1">moeglicheZuege</a> (const int spielfeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int aktuellerSpieler)</td></tr>
+<tr class="memdesc:a8cf3121558de67463e88957becd116d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ermittelt die Anzahl gueltiger Zuege fuer den aktuellen Spieler.  <br /></td></tr>
 <tr class="separator:a8cf3121558de67463e88957becd116d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7034afa60f015a8ab6c0b836d316d4a4" id="r_a7034afa60f015a8ab6c0b836d316d4a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7034afa60f015a8ab6c0b836d316d4a4">zugAusfuehren</a> (int spielfeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int aktuellerSpieler, const int posX, const int posY)</td></tr>
 <tr class="memdesc:a7034afa60f015a8ab6c0b836d316d4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion, die einen Zug ausfuehrt.  <br /></td></tr>
@@ -137,6 +138,17 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Ermittelt die Anzahl gueltiger Zuege fuer den aktuellen Spieler. </p>
+<p>Durchlaueft alle Felder des Spielfelds und prueft, ob ein Zug an dieser Stelle gemaess den Spielregeln gueltig waere</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spielfeld</td><td>Das aktuelle Spielfeld </td></tr>
+    <tr><td class="paramname">aktuellerSpieler</td><td>Der aktuelle Spieler </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Anzahl gueltiger Zuege </dd></dl>
 
 </div>
 </div>

@@ -21,7 +21,7 @@ public:
     void pushBack(Student pData);
     void pushFront(Student pData);
     void popFront();
-    void deleteElement(int mtr);
+    void deleteElement(unsigned int mtr);
     bool empty();
     Student dataFront();
     void ausgabeVorwaerts() const;

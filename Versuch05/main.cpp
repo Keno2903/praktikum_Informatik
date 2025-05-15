@@ -11,6 +11,14 @@
 #include "Liste.h"
 #include "Student.h"
 
+
+/**
+ * @brief Hauptfunktion zur Benutzung der Liste.
+ *
+ * Die Funktion erlaubt es dem Nutzer durch Eingaben mit der Datenbank in Form einer doppelt verketteten Liste zu interagieren.
+ *
+ * @return int Rückgabewert 0 bei erfolgreicher Ausführung.
+ */
 int main() {
 	Liste studentenListe;
 	Student student;
@@ -36,12 +44,12 @@ int main() {
 	}
 
 	do {
-		std::cout << "\nMenue:" << std::endl << "-----------------------------"
-				<< std::endl << "(1): Datenelement hinten hinzufuegen"
-				<< std::endl << "(2): Datenelement vorne entfernen" << std::endl
+		std::cout << "\nMenue:" << std::endl << "-----------------------------" << std::endl
+				<< "(1): Datenelement hinten hinzufuegen" << std::endl
+				<< "(2): Datenelement vorne entfernen" << std::endl
 				<< "(3): Datenbank ausgeben" << std::endl
-				<< "(4): Datenbank in umgekehrter Reihenfolge ausgeben"
-				<< std::endl << "(5): Datenelement löschen" << std::endl
+				<< "(4): Datenbank in umgekehrter Reihenfolge ausgeben" << std::endl
+				<< "(5): Datenelement löschen" << std::endl
 				<< "(6): Datenelement vorne hinzufügen" << std::endl
 				<< "(0): Beenden" << std::endl;
 		std::cin >> abfrage;

@@ -8,7 +8,6 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include "Vektor.h"
-
 /**
  * @brief Konstruktor: Initialisiert die Komponenten.
  * @param inX X‑Komponente
@@ -75,11 +74,11 @@ void Vektor::ausgabe() const
  */
 double Vektor::winkel(const Vektor& input) const
 {
-    double dp    = skalarProd(input);              // Skalarprodukt O·v
-    double l1    = laenge();                       // Länge dieses Vektors
-    double l2    = input.laenge();                 // Länge des anderen Vektors
-    double alpha = std::acos(dp / (l1 * l2));      // Winkel in Radiant
-    return alpha * 180.0 / M_PI;                   // Umrechnung in Grad
+    double skalarprod    = skalarProd(input);              // Skalarprodukt O·v
+    double laenge1    = laenge();                       // Länge dieses Vektors
+    double laenge2    = input.laenge();                 // Länge des anderen Vektors
+    double value = std::acos(skalarprod / (laenge1 * laenge2));      // Winkel in Radiant
+    return value * 180.0 / M_PI;                   // Umrechnung in Grad
 }
 
 /**

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: test.cpp File Reference</title>
+<title>Othello Spiel: test.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Othello Spiel
    </div>
   </td>
  </tr>
@@ -83,6 +83,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a9a96d91998389b5b92ae11bee6382caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion, die einen Zug ausfuehrt.  <br /></td></tr>
 <tr class="separator:a9a96d91998389b5b92ae11bee6382caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e489dcd4ea9e8df2a402eb1754f6fca" id="r_a0e489dcd4ea9e8df2a402eb1754f6fca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e489dcd4ea9e8df2a402eb1754f6fca">moeglicheZuege</a> (const int spielfeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int player)</td></tr>
+<tr class="memdesc:a0e489dcd4ea9e8df2a402eb1754f6fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ermittelt die Anzahl gueltiger Zuege fuer den aktuellen Spieler.  <br /></td></tr>
 <tr class="separator:a0e489dcd4ea9e8df2a402eb1754f6fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd7dc9f35ce7c4d7c9bb5c8075c9722f" id="r_abd7dc9f35ce7c4d7c9bb5c8075c9722f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd7dc9f35ce7c4d7c9bb5c8075c9722f">gewinnerTest</a> (const int eingabefeld[<a class="el" href="config_8h.html#a6e8c64412a620a46fbadb6bbf2df47fe">GROESSE_Y</a>][<a class="el" href="config_8h.html#a091c112fc29d1116c224f3d4c0fa7455">GROESSE_X</a>], const int richtig, const int testNummer)</td></tr>
 <tr class="memdesc:abd7dc9f35ce7c4d7c9bb5c8075c9722f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion zum Testen der <a class="el" href="#ab5b9afa274ecde39b15429f5fc77b59e" title="Prueft, wer Gewinner ist.">gewinner()</a> Funktion.  <br /></td></tr>
@@ -295,7 +296,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>player</em></span>&#160;)</td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>aktuellerSpieler</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -304,6 +305,17 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Ermittelt die Anzahl gueltiger Zuege fuer den aktuellen Spieler. </p>
+<p>Durchlaueft alle Felder des Spielfelds und prueft, ob ein Zug an dieser Stelle gemaess den Spielregeln gueltig waere</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spielfeld</td><td>Das aktuelle Spielfeld </td></tr>
+    <tr><td class="paramname">aktuellerSpieler</td><td>Der aktuelle Spieler </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Anzahl gueltiger Zuege </dd></dl>
 
 </div>
 </div>

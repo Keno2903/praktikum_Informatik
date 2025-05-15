@@ -25,11 +25,8 @@ var NAVTREEINDEX0 =
 "functions_vars.html":[0,2,2],
 "globals.html":[1,1,0],
 "globals_func.html":[1,1,1],
-"globals_vars.html":[1,1,2],
 "index.html":[],
 "main_8cpp.html":[1,0,1],
-"main_8cpp.html#a0877420f3d7b1f47b871d2ccb47168d8":[1,0,1,2],
-"main_8cpp.html#aa6e8e201edf24007dc075bfef6e8210c":[1,0,1,1],
 "main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[1,0,1,0],
 "main_8d.html":[1,0,0,0],
 "pages.html":[]

@@ -1,118 +1,60 @@
-//////////////////////////////////////////////////////////////////////////////
-// Praktikum Informatik 1 MMXXV
-// Versuch 04: Einführung Klasse
-//
-// Datei:  main.cpp
-// Inhalt: Hauptprogramm
-//////////////////////////////////////////////////////////////////////////////
+/**
+ * @file main.cpp
+ * @brief Hauptprogramm zur Berechnung der maximalen Sichtweite auf einer kugelförmigen Erde.
+ *
+ * Dieses Programm verwendet ausschließlich Vektoroperationen, um zu bestimmen,
+ * wie weit eine Person von einem erhöhten Aussichtspunkt (557.4 m über der Erdoberfläche)
+ * sehen kann, bevor die Erdkrümmung die Sicht blockiert. Dabei wird die Rotation eines
+ * Erdpunktes simuliert, bis der Sichtstrahl tangential zur Erdoberfläche verläuft.
+ */
 
-#include <iostream>
-#include <cmath>
-#include <iomanip>
 #include "Vektor.h"
 
-/// Erdradius der idealisierten Kugel-Erde in Metern.
-const double R = 6371e3;
-/// Höhe der Beobachtungsplattform über dem Erdrand in Metern.
-const double h = 555.7;
-
 /**
- * @brief Hauptprogramm zur Berechnung der Sichtweite bis zum Horizont.
+ * @brief Hauptfunktion zur Durchführung der Horizontberechnung.
  *
- * Zunächst werden zwei Beispiel-Vektoren ausgegeben, um die Klasse Vektor zu testen.
- * Anschließend wird mithilfe eines iterativen Rotationsverfahrens der maximale
- * Sichtstrahl bestimmt, der die Kugel (Erde) gerade noch tangential berührt.
+ * Die Funktion initialisiert Vektoren für die Erdoberfläche und die Augenhöhe der beobachtenden Person.
+ * Anschließend wird iterativ ein Punkt auf der Erdoberfläche um die Z-Achse gedreht, bis der
+ * Sichtvektor zum tangentialen Punkt führt. Die Ergebnisse werden formatiert ausgegeben.
  *
- * @return 0 bei normalem Programmende.
+ * @return int Rückgabewert 0 bei erfolgreicher Ausführung.
  */
 int main()
 {
-    // ------------------------------------------------------------------------
-    // 1. Test der Vektor-Klasse
-    // ------------------------------------------------------------------------
-    // Wir erzeugen zwei Einheitsvektoren entlang der x- und y-Achse
-    Vektor vector1(1.0, 0.0, 0.0);  // Einheit in +x‑Richtung
-    Vektor vector2(0.0, 1.0, 0.0);  // Einheit in +y‑Richtung
+	 // Vektor vom Erdmittelpunkt zur Erdoberfläche (6371 km)
+    Vektor erdRadius(0, 6371, 0);
 
-    // Ausgabe der Komponenten beider Vektoren:
-    // Erwartet:
-    //   X-Komponente: 1, Y-Komponente: 0, Z-Komponente: 0
-    //   X-Komponente: 0, Y-Komponente: 1, Z-Komponente: 0
-    vector1.ausgabe();
-    vector2.ausgabe();
+    // Vektor vom Erdmittelpunkt zur Augenhöhe (6371 km + 557.4 m)
+    Vektor aussichtsPunkt(0, 6371.5574, 0);
 
-    // ------------------------------------------------------------------------
-    // 2. Initialisierung der Beobachter- und Sichtvektoren
-    // ------------------------------------------------------------------------
-    // Beobachterposition O im kartesischen Koordinatensystem:
-    //   x = 0, y = R + h (radial nach außen), z = 0
-    Vektor O(0.0, R + h, 0.0);
+    // Vektor für die Sichtlinie
+    Vektor sicht(0, 0, 0);
 
-    // Start-Sichtrichtung v: tangential horizontal entlang +x
-    Vektor v(1.0, 0.0, 0.0);
+    double winkelZwischenSichtUndRadius = 180; // Startwinkel (180°)
+    double winkelBeta = -0.00000001; // Kleiner Rotationswinkel (Uhrzeigersinn)
+    int anzahlSchritte = 0; // Zähler für die Rotationsschritte
 
-    // ------------------------------------------------------------------------
-    // 3. Vorbereitung des Iterationsverfahrens
-    // ------------------------------------------------------------------------
-    const double delta = 1e-8;  // Drehschritt in Radiant (sehr klein)
-    int steps = 0;               // Zähler für die Anzahl der Drehschritte
-
-    // Vorab-Berechnung von |O|², da O konstant bleibt:
-    //   |O|² = (R + h)²
-    double OO = O.laenge() * O.laenge();
-
-    // Initiales Skalarprodukt O·v (bei v horizontal): (R+h)*0 = 0
-    double Ov = O.skalarProd(v);
-
-    // Diskriminante D für die Gleichung |O + t v|² = R²:
-    //   D = (O·v)² - (|O|² - R²)
-    // Wenn D < 0, schneidet der Strahl die Kugel nicht (liegt oberhalb).
-    // Wir rotieren, bis D >= 0 (Tangentialberührung).
-    double D = Ov * Ov - (OO - R * R);
-
-    // ------------------------------------------------------------------------
-    // 4. Iterative Rotation um die z-Achse
-    // ------------------------------------------------------------------------
-    // Solange D < 0: Strahl trifft die Kugel nicht, daher weiter nach unten drehen
-    while (D < 0.0) {
-        // 4.1 Drehe den Richtungsvektor v um -delta um die z-Achse
-        v.rotiereUmZ(-delta);
-        ++steps;
-
-        // 4.2 Berechne neues Skalarprodukt O·v
-        Ov = O.skalarProd(v);
-
-        // 4.3 Aktualisiere die Diskriminante D
-        D = Ov * Ov - (OO - R * R);
+    // Iterative Drehung des Erdpunktes, bis der Sichtwinkel ≤ 90° ist (tangential)
+    while (winkelZwischenSichtUndRadius > 90)
+    {
+    	erdRadius.rotiereUmZ(winkelBeta); // Drehe Erdpunkt leicht im Uhrzeigersinn
+      	sicht = erdRadius.sub(aussichtsPunkt); // Berechne Sichtvektor vom Auge zum Erdpunkt
+      	winkelZwischenSichtUndRadius = sicht.winkel(erdRadius); // Berechne Winkel zur Erdachse
+      	anzahlSchritte ++; // Erhöhe Schrittzähler
     }
-    // Wenn wir hier ankommen, ist D >= 0: erster Tangentialfall erreicht
 
-    // ------------------------------------------------------------------------
-    // 5. Auswertung: Winkel und Sichtweite
-    // ------------------------------------------------------------------------
-    // Winkel β in Radiant = Anzahl Schritte * delta
-    double beta_rad = steps * delta;
-    // Umrechnung in Grad
-    double beta_deg = beta_rad * 180.0 / M_PI;
+    // Länge des finalen Sichtvektors = maximale Sichtweite (in km)
+    double entfernung = sicht.laenge();
 
-    // Berechnung der Distanz t bis zum Tangentialpunkt:
-    // Aus der quadratischen Lösung bei D=0 folgt t = - (O·v)
-    double S_m  = -Ov;          // Distanz in Metern
-    double S_km = S_m / 1000.0; // Distanz in Kilometern
+    // Ausgabe im gewünschten Format
+    std::cout << std::fixed;
+    std::cout << std::setprecision(4);
 
-    // ------------------------------------------------------------------------
-    // 6. Formatierte Ausgabe der Ergebnisse
-    // ------------------------------------------------------------------------
-    std::cout << std::fixed << std::setprecision(4);
-
-    // Sichtweite in km
-    std::cout << "Sie können " << S_km << " Km weit sehen." << std::endl;
-    // Höhe der Plattform in m
-    std::cout << "Sie sind "     << h    << " Meter hoch." << std::endl;
-    // Winkel β in Grad
-    std::cout << "Der Winkel beträgt " << beta_deg << " Grad." << std::endl;
-    // Anzahl der benötigten Rotationsschritte
-    std::cout << "Anzahl Schritte: "     << steps   << std::endl;
+    std::cout << "Sie koennen " << entfernung << " Km weit sehen." << std::endl;
+    std::cout << "Sie sind 557.4000 Meter hoch." << std::endl;
+    std::cout << "Der Winkel betraegt " << anzahlSchritte * winkelBeta *180/M_PI * -1 << " Grad." << std::endl; // *-1 denn winkelBeta ist in Uhrzeigersinn
+    std::cout << "Anzahl Schritte: " << anzahlSchritte << std::endl;
 
     return 0;
+
 }

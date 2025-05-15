@@ -17,7 +17,7 @@ const int GROESSE_X = 8;
 const int GROESSE_Y = 8;
 
 /** Definiert, ob die Tests ausgefuehrt werden. 1 ja, 0 nein */
-const int TEST = 0;
+const int TEST = 1;
 
 /** Definiert, ob die Ausgabe der Test ausfuehrlicher sein soll */
 const int AUSFUEHRLICH = 1;
